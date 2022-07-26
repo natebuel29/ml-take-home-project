@@ -20,20 +20,20 @@ def max_depth_cross_validation(X_train,X_test,y_train,y_test,depths):
         cm = confusion_matrix(y_test,test_predictions)
         # #2 - output the accuracy score of the model on the test data
         print(f"Testing data accuracy for the depth of {depth}: {test_acc}")
-        # #4 - print ocnfusion matrix
-        print(f"Testing data confusion matrix for depth = {depth}:")
+        # #4 - print confusion matrix
+        print(f"Testing data confusion matrix for depth of {depth}:")
         print(cm)
     
     return test_accuracy,train_accuracy
 
 ##plot the accuracy of model to visualize accuracy vs model_depth
 def plot_accuracy(test_acc,train_acc,max_depth):
-    plt.plot(max_depth, test_acc, label='Testing Error') # Plot testing error over domain
-    plt.plot(max_depth, train_acc, label='Training Error') # Plot training error over domain
+    plt.plot(max_depth, test_acc, label='Testing Accuracy') 
+    plt.plot(max_depth, train_acc, label='Training Accuracy') 
     plt.xlabel('Maximum Depth') 
     plt.ylabel('Accuracy') 
-    plt.legend() # Show plot labels as legend
-    plt.show() # Show graph
+    plt.legend() 
+    plt.show() 
 
 def decision_tree_iris():  
     data = load_iris()
