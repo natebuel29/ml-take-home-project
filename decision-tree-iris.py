@@ -4,6 +4,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score,confusion_matrix
 import matplotlib.pyplot as plt
 
+# #3 - cross validation
 def max_depth_cross_validation(X_train,X_test,y_train,y_test,depths):
     test_accuracy = []
     train_accuracy = []
@@ -17,7 +18,9 @@ def max_depth_cross_validation(X_train,X_test,y_train,y_test,depths):
         test_acc = accuracy_score(test_predictions,y_test)
         test_accuracy.append(test_acc)
         cm = confusion_matrix(y_test,test_predictions)
+        # #2 - output the accuracy score of the model on the test data
         print(f"Testing data accuracy for the depth of {depth}: {test_acc}")
+        # #4 - print ocnfusion matrix
         print(f"Testing data confusion matrix for depth = {depth}:")
         print(cm)
     
@@ -41,7 +44,7 @@ def decision_tree_iris():
 
     max_depth = [1,5,10]
     
-    #split the data into training and test data
+    # #1 - split the data into training and test data
     X_train,X_test,y_train,y_test = train_test_split(features,labels,test_size=0.20,random_state=40)
     
     #cross-validation for max_depth
